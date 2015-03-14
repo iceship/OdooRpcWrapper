@@ -29,17 +29,25 @@ Define what fields to fetch by default:
 Create new objects by calling the model. New objects need to be saved.
 
 >  OdooRecord record = productModel.CreateNew();
+
 >  record.SetValue("name", "my new product!")
+
 >  record.Save()
 
 ## Search
 
 >  object[] filter = new object[1];
+
 >  filter[0] = new object[3] { "name", "my new product", "" };
+
 >  List<OdooRecord> records = productModel.Search(filter);
+
 >  foreach(OdooRecord record in records)
+
 >  {
+
 >      Console.WriteLine(String.Format("[{0}] {1}", record.GetValue("default_code"), record.GetValue("name")));
+
 >  }
 
 ## Modify
@@ -47,5 +55,7 @@ Create new objects by calling the model. New objects need to be saved.
 Modify C# objects, and call 'Save'
 
 >  OdooRecord record = records[0]
+
 >  record.SetValue("name", "my old product")
+
 >  record.Save()
